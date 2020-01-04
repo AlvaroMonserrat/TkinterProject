@@ -20,6 +20,7 @@ def play_music():
         try:
             mixer.music.load(filename)
             mixer.music.play()
+            statusbar['text'] = "Playing Music"
         except NameError:
             tkinter.messagebox.showerror("No Music", "No se encontro archivo de sonido.")
             print("Error")
@@ -78,7 +79,7 @@ def main():
     mixer.init()
 
     # Set window parameters
-    root.geometry('800x600')
+    root.geometry('320x240')
     root.title('Melody')
     root.iconbitmap('fono.ico')
 
@@ -91,17 +92,17 @@ def main():
     middle_frame.pack(padx=10, pady=10)
 
     # Add Button Play
-    play_photo = tkinter.PhotoImage(file='play.png')
+    play_photo = tkinter.PhotoImage(file='play_64.png')
     play_btn = tkinter.Button(middle_frame, image=play_photo, command=play_music)
-    play_btn.pack()
+    play_btn.pack(side=tkinter.LEFT)
 
     # Add Button Paused
-    pause_photo = tkinter.PhotoImage(file='paused.png')
+    pause_photo = tkinter.PhotoImage(file='paused_64.png')
     paused_btn = tkinter.Button(middle_frame, image=pause_photo, command=pause_music)
     paused_btn.pack(side=tkinter.LEFT)
 
     # Add Button Stop
-    stop_photo = tkinter.PhotoImage(file='stop.png')
+    stop_photo = tkinter.PhotoImage(file='stop_64.png')
     stop_btn = tkinter.Button(middle_frame, image=stop_photo, command=stop_music)
     stop_btn.pack()
 
